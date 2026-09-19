@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Demo</title>
+
+  <!-- Подключение Firebase Compat SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+  <h2>Firebase Realtime Database Demo</h2>
+  
+  <button id="sendBtn">Bazaga ma'lumot qo'shish</button>
+  <p id="natija"></p>
+
+  <script>
+    // Конфигурация Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDkaOb8GAI6L4cPU0HsBbtsl4Noqty9KeA",
+      authDomain: "finodex-3e06e.firebaseapp.com",
+      databaseURL: "https://finodex-3e06e-default-rtdb.firebaseio.com",
+      projectId: "finodex-3e06e",
+      storageBucket: "finodex-3e06e.firebasestorage.app",
+      messagingSenderId: "667605223287",
+      appId: "1:667605223287:web:bc0bbe0a97f57fa3128372",
+      measurementId: "G-NBMP08NZZ5"
+    };
+
+    // Инициализация
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Запись данных
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      db.ref('users/user1').set({
+        ism: "Dilnura",
+        vaqt: new Date().toLocaleTimeString('uz-UZ')
+      }).then(() => {
+        alert("Ma'lumot bazaga saqlandi!");
+      }).catch((error) => {
+        alert("Xatolik: " + error.message);
+      });
+    });
+
+    // Чтение данных в реальном времени
+    db.ref('users/user1').on('value', (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        document.getElementById("natija").innerText = 'Ism: ${data.ism}, Vaqt: ${data.vaqt};'
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finodex — kichik biznes uchun cho'ntakdagi moliya direktori</title>
+  <meta name="description" content="Finodex kassa uzilishini 60 kun oldin ko'rsatadi va nima qilish kerakligini aytadi. Do'kon, dorixona va kafe egalari uchun.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' fill='%230e7c86'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%2310232e' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Finodex bosh sahifa">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="6" width="20" height="20" fill="#0e7c86"/><rect x="6" y="6" width="20" height="20" fill="#10232e" transform="rotate(45 16 16)"/></svg>
+      Finodex
+    </a>
+    <nav class="nav-links" aria-label="Asosiy">
+      <a href="#muammo">Muammo</a>
+      <a href="#qanday">Qanday ishlaydi</a>
+      <a href="#narx">Narx</a>
+      <a href="#savollar">Savollar</a>
+    </nav>
+    <div class="nav-actions" id="nav-actions">
+      <a class="btn btn-ghost btn-small" href="/login">Kirish</a>
+      <a class="btn btn-primary btn-small" href="/register">Bepul boshlash</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Kassa uzilishini 60&nbsp;kun oldin ko'ring.</h1>
+        <p class="lead">Finodex — do'kon, dorixona va kafe egasining cho'ntagidagi moliya direktori. Kirim-chiqimingizni o'qib, qaysi kuni pul yetmay qolishini aytadi va nima qilish kerakligini tushuntiradi.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/register">14 kun bepul sinash</a>
+
+          
+          <a class="btn btn-ghost" href="#qanday">Qanday ishlaydi</a>
+        </div>
+        <p class="fine">Bank kartasi shart emas. Ro'yxatdan o'tish 1 daqiqa.</p>
+      </div>
+
+      <figure class="forecast-figure">
+        <svg viewBox="0 0 640 380" role="img" aria-labelledby="fc-title fc-desc">
+          <title id="fc-title">Kassa qoldig'i prognozi namunasi</title>
+          <desc id="fc-desc">Qoldiq bugundan keyin pasayib, ijara to'lovi kuni noldan pastga tushadi. Nol chizig'idan pastdagi hudud kassa uzilishi zonasi.</desc>
+          <defs>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="8" height="8" fill="#fbe3de"/>
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#d64933" stroke-width="1.5" opacity=".55"/>
+            </pattern>
+          </defs>
+          <!-- nol chizig'idan pastdagi zona -->
+          <rect x="30" y="236" width="590" height="104" fill="url(#hatch)"/>
+          <line x1="30" y1="236" x2="620" y2="236" stroke="#10232e" stroke-width="1.5"/>
+          <text class="fc-text" x="36" y="230" font-size="13" fill="#10232e" font-weight="600">Kassada 0 so'm</text>
+          <text class="fc-text" x="36" y="330" font-size="13" fill="#a12f1e" font-weight="600">Kassa uzilishi zonasi</text>
+          <!-- bugun -->
+          <line x1="110" y1="20" x2="110" y2="340" stroke="#4a5d68" stroke-width="1" stroke-dasharray="3 4"/>
+          <text class="fc-text" x="116" y="34" font-size="13" fill="#4a5d68">Bugun</text>
+          <!-- o'tgan (haqiqiy) -->
+          <path d="M30 120 L50 130 L70 116 L90 128 L110 118" fill="none" stroke="#0e7c86" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- prognoz -->
+          <path d="M110 118 C170 140 220 132 270 160 S360 205 420 236 S470 286 505 292 S570 268 615 236" fill="none" stroke="#0e7c86" stroke-width="3.5" stroke-dasharray="9 7" stroke-linecap="round"/>
+          <!-- ogohlantirish -->
+          <g class="callout">
+            <circle cx="420" cy="236" r="9" fill="#d64933" stroke="#fff" stroke-width="3"/>
+            <rect x="208" y="52" width="250" height="84" rx="8" fill="#10232e"/>
+            <line x1="420" y1="136" x2="420" y2="226" stroke="#10232e" stroke-width="1.5"/>
+            <text class="fc-text" x="224" y="80" font-size="15" fill="#fff" font-weight="600">18-fevral: ijara to'lovi</text>
+            <text class="fc-text" x="224" y="102" font-size="14" fill="#f5c2b8">4 200 000 so'm yetmay qoladi</text>
+            <text class="fc-text" x="224" y="122" font-size="13" fill="#9fdde2">Tovar buyurtmasini kamaytiring</text>
+          </g>
+          <!-- vaqt o'qi -->
+          <text class="fc-text" x="30" y="366" font-size="12" fill="#4a5d68">30 kun oldin</text>
+          <text class="fc-text" x="540" y="366" font-size="12" fill="#4a5d68">60 kun keyin</text>
+        </svg>
+        <figcaption>Namuna: Finodex ogohlantirishi shunday ko'rinadi. Chiziq — kassa qoldig'i; yaxlit qismi haqiqiy, uzuq qismi prognoz.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" id="muammo">
+    <div class="wrap split">
+      <div class="sticky">
+        <div class="big-stat">80%+</div>
+        <h2>kichik biznes dastlabki 3 yilda sinadi.</h2>
+      </div>
+      <div class="problem-list">
+        <div>
+          <h3>Mahsulot emas, kassa</h3>
+          <p>Ko'p do'kon, dorixona va kafe sifatsiz mahsulot tufayli emas, hisobda pul yo'q kuni kelib qolgani uchun yopiladi. Savdo bor, lekin ijara yoki maosh kuni pul yetmaydi.</p>
+        </div>
+        <div>
+          <h3>Moliya direktori qimmat</h3>
+          <p>Professional moliyachini yollash kichik tadbirkor uchun imkonsiz. Oyiga bir necha million so'm — butun foydangiz.</p>
+        </div>
+        <div>
+          <h3>Excel faqat o'tmishni ko'rsatadi</h3>
+          <p>Jadval "o'tgan oy nima bo'lganini" aytadi. "Fevralda nima bo'ladi" degan savolga javob bermaydi. Qaror esa aynan shu savolga bog'liq.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="qanday">
+    <div class="wrap split">
+      <div class="sticky">
+        <h2>Uch qadam, moliyachi kerak emas.</h2>
+        <p class="sub">Finodex kirim-chiqimingizdan qonuniyat topadi va uni kelajakka davom ettiradi.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Biznesingizni qo'shing</h3>
+            <p>Ro'yxatdan o'ting, hozirgi kassa qoldig'ini va doimiy to'lovlaringizni (ijara, maosh, soliq, kredit) kiriting.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Kirim va chiqimni yozing yoki yuklang</h3>
+            <p>Kunlik savdo va xarajatni qo'lda kiriting yoki bank/kassa ko'chirmasini CSV fayl sifatida yuklang. 100 tagacha yozuv bir soniyada qo'shiladi.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Prognoz va maslahatni oling</h3>
+            <p>Finodex hafta kunlari bo'yicha savdo odatingizni, trendni va doimiy to'lovlarni hisoblab, 60 kunlik kassa chizig'ini chizadi. Pul yetmaydigan kun bo'lsa — sanasi va sababi bilan ogohlantiradi.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="ulanish">
+    <div class="wrap split">
+      <div class="sticky">
+        <h2>Nima hozir ishlaydi, nima yo'lda.</h2>
+        <p class="sub">Biz ochiq gapiramiz: har bir imkoniyat holati ko'rsatilgan.</p>
+      </div>
+      <table class="status-table">
+        <tbody>
+          <tr><th>Kirim-chiqimni qo'lda kiritish</th><td><span class="badge badge-now">Ishlaydi</span></td></tr>
+          <tr><th>CSV fayldan yuklash</th><td><span class="badge badge-now">Ishlaydi</span></td></tr>
+          <tr><th>60 kunlik kassa prognozi va ogohlantirishlar</th><td><span class="badge badge-now">Ishlaydi</span></td></tr>
+          <tr><th>Bank hisobini avtomatik o'qish</th><td><span class="badge badge-soon">Tez orada</span></td></tr>
+          <tr><th>Onlayn-kassa va soliq ma'lumotlari</th><td><span class="badge badge-soon">Tez orada</span></td></tr>
+          <tr><th>Bankdan tayyor kredit liniyasi taklifi</th><td><span class="badge badge-soon">Tez orada</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block pricing" id="narx">
+    <div class="wrap split">
+      <div>
+        <h2>Bitta narx. Bitta maqsad: bankrot bo'lmaslik.</h2>
+        <p class="sub">Moliya direktori oyiga millionlab so'm turadi. Finodex — kuniga bir kofe narxidan arzon.</p>
+      </div>
+      <div class="price-box">
+        <div class="price">$25 <small>/ oyiga</small></div>
+        <ul>
+          <li>14 kun bepul sinov</li>
+          <li>60 kunlik kassa prognozi</li>
+          <li>Kassa uzilishi haqida oldindan ogohlantirish</li>
+          <li>Cheksiz yozuv va CSV yuklash</li>
+          <li>Istalgan vaqt bekor qilish</li>
+        </ul>
+        <a class="btn btn-primary" href="/register">Bepul sinovni boshlash</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="savollar">
+    <div class="wrap split">
+      <div class="sticky">
+        <h2>Ko'p beriladigan savollar</h2>
+      </div>
+      <div>
+        <details>
+          <summary>Prognoz qanchalik aniq?</summary>
+          <p>Prognoz sizning haqiqiy ma'lumotingizga tayanadi. Bir haftalik ma'lumot bilan taxminiy, 6 haftadan keyin trend hisobga olinadi. Ekran ostida har doim aniqlik darajasi ko'rsatiladi. Prognoz — kafolat emas, qaror qabul qilish uchun yordamchi.</p>
+        </details>
+        <details>
+          <summary>Ma'lumotlarim xavfsizmi?</summary>
+          <p>Parolingiz bir tomonlama shifrlanib saqlanadi, ma'lumotingizni faqat siz ko'rasiz. Ulanish himoyalangan cookie orqali ishlaydi.</p>
+        </details>
+        <details>
+          <summary>Bank va soliq bilan ulanish bormi?</summary>
+          <p>Hozircha kirim-chiqim qo'lda yoki CSV orqali kiritiladi. Bank, onlayn-kassa va soliq ma'lumotlarini avtomatik o'qish ustida ishlayapmiz, u tayyor bo'lganda ko'rsatamiz.</p>
+        </details>
+        <details>
+          <summary>Buxgalterni almashtiradimi?</summary>
+          <p>Yo'q. Finodex soliq hisobotini topshirmaydi. U kassa oqimini boshqarishga yordam beradi — buxgalter o'tmishni yuritadi, Finodex kelajakni ko'rsatadi.</p>
+        </details>
+        <details>
+          <summary>Sinov tugagach nima bo'ladi?</summary>
+          <p>Sinov muddati tugashidan oldin hisobingizda eslatma ko'rasiz. Ma'lumotlaringiz o'chib ketmaydi.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="block cta-band">
+    <div class="wrap">
+      <h2>Keyingi ijara kuniga tayyor bo'ling.</h2>
+      <a class="btn btn-primary" href="/register">Bepul ro'yxatdan o'tish</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Finodex. O'zbekiston kichik biznesi uchun.</span>
+    <span>Finodex moliyaviy maslahat emas, hisob-kitob vositasidir.</span>
+  </div>
+</footer>
+
+<script src="/js/landing.js"></script>
+</footer>
+
+<script src="/js/landing.js"></script>
+
+<!-- 1. Firebase kutubxonalarini ulash -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
+<!-- 2. Firebase sozlamalari va ulash kodi -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDkaOb8GAI6L4cPU0HsBbtsl4Noqty9KeA",
+    authDomain: "finodex-3e06e.firebaseapp.com",
+    databaseURL: "https://finodex-3e06e-default-rtdb.firebaseio.com",
+    projectId: "finodex-3e06e",
+    storageBucket: "finodex-3e06e.firebasestorage.app",
+    messagingSenderId: "667605223287",
+    appId: "1:667605223287:web:bc0bbe0a97f57fa3128372",
+    measurementId: "G-NBMP08NZZ5"
+  };
+
+  // Firebase-ni ishga tushirish
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+</script>
+
+</body>
+</html>
+</body>
+</html>

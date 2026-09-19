@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Kabinet — Finodex</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' fill='%230e7c86'/%3E%3Crect x='6' y='6' width='20' height='20' fill='%2310232e' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="app-bar">
+  <div class="wrap">
+    <a class="logo" href="/">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="6" width="20" height="20" fill="#0e7c86"/><rect x="6" y="6" width="20" height="20" fill="#10232e" transform="rotate(45 16 16)"/></svg>
+      Finodex
+    </a>
+    <div class="app-user">
+      <span class="trial-pill" id="trial-pill" hidden></span>
+      <span class="biz" id="biz-name"></span>
+      <button class="btn btn-ghost btn-small" id="logout" type="button">Chiqish</button>
+    </div>
+  </div>
+</header>
+
+<main class="app-main wrap">
+  <div id="loading" class="loading">Yuklanmoqda…</div>
+
+  <div id="app" hidden>
+    <div class="app-title">
+      <div>
+        <h1 id="greet"></h1>
+        <p id="subtitle"></p>
+      </div>
+      <button class="btn btn-ghost btn-small" id="adjust-balance" type="button">Boshlang'ich qoldiqni tuzatish</button>
+    </div>
+
+    <div class="kpis" aria-label="Asosiy ko'rsatkichlar">
+      <div class="kpi"><div class="kpi-label">Hozirgi qoldiq</div><div class="kpi-value" id="kpi-balance">—</div><div class="kpi-note">kassa + bank</div></div>
+      <div class="kpi"><div class="kpi-label">Oxirgi 30 kun kirim</div><div class="kpi-value" id="kpi-income">—</div><div class="kpi-note" id="kpi-income-note"></div></div>
+      <div class="kpi"><div class="kpi-label">Oxirgi 30 kun chiqim</div><div class="kpi-value" id="kpi-expense">—</div><div class="kpi-note" id="kpi-expense-note"></div></div>
+      <div class="kpi"><div class="kpi-label">Qoldiq yetadi</div><div class="kpi-value" id="kpi-runway">—</div><div class="kpi-note" id="kpi-runway-note"></div></div>
+    </div>
+
+    <section class="panel" aria-labelledby="fc-h">
+      <div class="panel-head">
+        <h2 id="fc-h">60 kunlik kassa prognozi</h2>
+        <span class="muted" id="fc-conf"></span>
+      </div>
+      <div class="chart-box" id="chart-box">
+        <div class="chart-tip" id="chart-tip"></div>
+      </div>
+      <div class="legend">
+        <span><i></i>Qoldiq (musbat)</span>
+        <span><i class="red"></i>Qoldiq (noldan past)</span>
+      </div>
+      <div class="insights" id="insights" aria-live="polite"></div>
+    </section>
+
+    <div class="cols">
+      <section class="panel" aria-labelledby="add-h">
+        <div class="panel-head"><h2 id="add-h">Yangi yozuv</h2></div>
+        <div id="tx-error" class="form-error" role="alert"></div>
+        <form id="tx-form" novalidate>
+          <div class="seg" role="radiogroup" aria-label="Turi">
+            <input type="radio" name="type" id="t-income" value="income" checked><label for="t-income">Kirim</label>
+            <input type="radio" name="type" id="t-expense" value="expense"><label for="t-expense">Chiqim</label>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="tx-amount">Summa (so'm)</label>
+              <input id="tx-amount" inputmode="numeric" placeholder="1 500 000" required>
+            </div>
+            <div class="field">
+              <label for="tx-date">Sana</label>
+              <input id="tx-date" type="date" required>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="tx-category">Toifa</label>
+              <select id="tx-category"></select>
+            </div>
+            <div class="field">
+              <label for="tx-note">Izoh</label>
+              <input id="tx-note" maxlength="200" placeholder="Ixtiyoriy">
+            </div>
+          </div>
+          <p class="hint muted" id="fixed-hint" hidden>Ijara, ish haqi, soliq va kredit prognozga o'ng tomondagi "Doimiy to'lovlar" ro'yxatidan olinadi. To'lovni bu yerda yozsangiz, qoldiq to'g'ri kamayadi; ro'yxatga ham qo'shing.</p>
+          <button class="btn btn-primary" type="submit">Yozuvni qo'shish</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-labelledby="rec-h">
+        <div class="panel-head"><h2 id="rec-h">Doimiy to'lovlar</h2><span class="muted">Har oy takrorlanadi</span></div>
+        <ul class="rec-list" id="rec-list"></ul>
+        <div id="rec-error" class="form-error" role="alert"></div>
+        <form id="rec-form" novalidate>
+          <div class="row2">
+            <div class="field">
+              <label for="rec-title">Nomi</label>
+              <input id="rec-title" placeholder="Ijara" maxlength="60" required>
+            </div>
+            <div class="field">
+              <label for="rec-amount">Summa (so'm)</label>
+              <input id="rec-amount" inputmode="numeric" placeholder="4 200 000" required>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="rec-day">Oyning necha kuni</label>
+              <input id="rec-day" type="number" min="1" max="31" placeholder="5" required>
+            </div>
+            <div class="field">
+              <label for="rec-type">Turi</label>
+              <select id="rec-type"><option value="expense">Chiqim</option><option value="income">Kirim</option></select>
+            </div>
+          </div>
+          <button class="btn btn-ghost" type="submit">To'lovni qo'shish</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="hist-h">
+      <div class="panel-head">
+        <h2 id="hist-h">Yozuvlar</h2>
+        <div>
+          <button class="btn btn-ghost btn-small" id="csv-template" type="button">CSV namunasi</button>
+          <button class="btn btn-ghost btn-small" id="csv-btn" type="button">CSV yuklash</button>
+          <input type="file" id="csv-file" accept=".csv,text/csv" hidden>
+        </div>
+      </div>
+      <div id="tx-list"></div>
+    </section>
+  </div>
+</main>
+
+<script src="/js/common.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/dashboard.js"></script>
+</body>
+</html>
